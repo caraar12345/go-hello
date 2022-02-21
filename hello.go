@@ -2,10 +2,20 @@ package main
 
 import (
 	"fmt"
+	"log"
 
-	"rsc.io/quote"
+	greetings "github.com/caraar12345/go-tutorial-greetings"
 )
 
 func main() {
-	fmt.Println(quote.Go())
+	log.SetPrefix("greetings: ")
+	log.SetFlags(0)
+
+	message, err := greetings.Hello("")
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(message)
 }
